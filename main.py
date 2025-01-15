@@ -54,6 +54,8 @@ while dealer_hand_value < 17:
         dealer_hand_value += values[drawn_card]
     else:
         dealer_hand_value += int(drawn_card)
+    if "Ace" in dealer_hand and dealer_hand_value > 21:
+        dealer_hand_value -= 10
 
 for i in player_hand:
     if i in values:
@@ -64,9 +66,9 @@ for i in player_hand:
         player_hand_value -= 10
 
 
-print(dealer_hand)
-print(player_hand_value)
-print(dealer_hand_value)
+print(f"Player's Hand: {player_hand} (Total: {player_hand_value})")
+print(f"Dealer's Hand: {dealer_hand} (Total: {dealer_hand_value})")
+
 
 if player_hand_value > 21:
     print("You broke!")
